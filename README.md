@@ -21,6 +21,11 @@ Prealse read /resources/README.md
     python3 USC2Mitsuba.py
     python3 render.py
     ```
+
+## Sample
+
+![](sample.png)
+
 ## citation
 
 ### Mitsuba3
