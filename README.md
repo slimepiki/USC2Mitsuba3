@@ -1,6 +1,6 @@
 # USC2Mitsuba3
 
-There are tools for rendering USC-HairSalon format hair with mitsuba3.
+These are tools for rendering USC-HairSalon format hair with mitsuba3.
 
 ## Resolve a dependency
 
