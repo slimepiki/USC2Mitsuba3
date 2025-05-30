@@ -1,6 +1,6 @@
 # USC2Mitsuba3
 
-There are tools for rendering USC-HairSalon format hair with mitsuba3
+There are tools for rendering USC-HairSalon format hair with mitsuba3.
 
 ## Resolve a dependency
 
@@ -10,7 +10,7 @@ pip install mitsuba
 
 ## Data preparation
 
-Prealse read /resources/README.md
+Prealse read [resources/README.md](https://github.com/slimepiki/USC2Mitsuba3/blob/main/resources/README.md).
 
 ## Usage
 
