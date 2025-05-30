@@ -24,7 +24,7 @@ Prealse read /resources/README.md
 
 ## Sample
 
-![](sample.png)
+![](resources/sample.png)
 
 ## citation
 
