@@ -1,4 +1,4 @@
-.obj
-.mcur
-.data
-.vscode
+*.obj
+*.mcur
+*.data
+*.vscode
