@@ -9,4 +9,7 @@ scene = mi.load_file("scene.xml")
 
 image = mi.render(scene)
 
-mi.util.write_bitmap("sample.png", image)
+if(len(args)>1):
+	mi.util.write_bitmap(args[1]+".png", image)
+else:
+	mi.util.write_bitmap("sample.png", image)

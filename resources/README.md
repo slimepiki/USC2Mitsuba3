@@ -4,8 +4,8 @@ Please put here the files downloaded from below URLs
 
 [USC-HairSalon (with a head .obj)](https://huliwenkidkid.github.io/liwenhu.github.io/)
 
-
 (alternatives)
+
 - [Hair20k](https://zhouyisjtu.github.io/project_hair/hair20k.html)
 - [CT2Hair]( https://github.com/facebookresearch/CT2Hair )
 

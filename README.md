@@ -24,7 +24,7 @@ Prealse read [resources/README.md](https://github.com/slimepiki/USC2Mitsuba3/blo
 
 ## Sample
 
-![](resources/sample.png)
+![ ](resources/sample.png)
 
 ## citation
 
