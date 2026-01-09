@@ -1,36 +1,51 @@
 import math
 import struct
 import array
+import subprocess
+import os
 
-src_path = "../resources/strands00001.data"
+src_path = "../resources/usc/strands"
 dst_path = "../resources/hair.mcur"
 hair_radii = 0.0015
 
 def calc_local_radii(v, len):
     return hair_radii * (1.0 - 1.0 * math.sqrt(v / len))
 
-fin = open(src_path, "rb")
-fout = open(dst_path, "w")
+def get_5dig_str(i):
+    st = str(i)
+    while(len(st)<5):
+        st = '0'+st
+    return st
 
-num_strands = struct.unpack('<i', fin.read(4))[0]
+for t in range (66, 514):
+    path = src_path+get_5dig_str(t)+".data"
 
-for s in range(1, num_strands):  
-    num_verts = struct.unpack('<i', fin.read(4))[0]
-
-    verts = array.array('f') 
-    verts.fromfile(fin, 3 * num_verts)
-
-    if (num_verts < 2):  # skip empty roots
+    if not os.path.isfile(path):
         continue
 
-    for v in range(1, num_verts):
-        current_radii = calc_local_radii(v, num_verts)
+    fin = open(path, "rb")
+    fout = open(dst_path, "w")
+
+    num_strands = struct.unpack('<i', fin.read(4))[0]
+
+    for s in range(66, num_strands):  
+        num_verts = struct.unpack('<i', fin.read(4))[0]
+
+        verts = array.array('f') 
+        verts.fromfile(fin, 3 * num_verts)
+
+        if (num_verts < 2):  # skip empty roots
+            continue
+
+        for v in range(1, num_verts):
+            current_radii = calc_local_radii(v, num_verts)
+            
+            fout.write(f"{verts[(v - 1) * 3]} {verts[(v - 1) * 3 + 1]} {verts[(v - 1) * 3 + 2]} {current_radii}\n")
         
-        fout.write(f"{verts[(v - 1) * 3]} {verts[(v - 1) * 3 + 1]} {verts[(v - 1) * 3 + 2]} {current_radii}\n")
-    
-    fout.write("\n")
+        fout.write("\n")
 
-fin.close()
-fout.close()
+    fin.close()
+    fout.close()
 
-print(f"USC2MitsubaCurve : {src_path} -> {dst_path}")
+    print(f"USC2MitsubaCurve : {path} -> {dst_path}")
+    subprocess.call(["python3", "render.py", get_5dig_str(t)])
